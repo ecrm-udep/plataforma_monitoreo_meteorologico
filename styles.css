@@ -1,0 +1,234 @@
+/* ---RESET--- */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    color: #333;
+}
+
+/* ---MENÚ DE NAVEGACIÓN--- */
+header {
+    background: #ffffff;
+    border-bottom: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.logo img {
+    height: 50px;
+    margin-right: 10px;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li {
+    text-align: center;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #003366;
+    font-weight: bold;
+    padding: 5px 10px;
+    transition: color 0.3s;
+}
+
+.menu a:hover {
+    color: #005bb5;
+}
+
+/* ---TITULO--- */
+.parrafo1 {
+    font-size: 34px; /* Tamaño más grande */
+    font-weight: bold; /* Negrita para resaltar */
+    color: #003366; /* Azul oscuro para mantener la paleta */
+    text-align: center; /* Centrar el texto */
+    line-height: 1.5; /* Espaciado entre líneas */
+    margin: 20px auto; /* Margen superior e inferior */
+    padding: 15px; /* Espacio interno */
+}
+
+/* ---FOOTER--- */
+footer {
+    background-color: #54565b; /* Gris oscuro como fondo */
+    color: #ffffff; /* Texto blanco */
+    text-align: center; /* Centrar el contenido */
+    padding: 5px 5px; /* Espaciado interno */
+    font-size: 14px; /* Tamaño de fuente adecuado */
+    margin-top: 15px; /* Espacio desde el contenido principal */
+}
+
+/* ---NUBOSIDAD--- */
+
+/* Contenedor principal*/
+.tabs-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #00467A;
+    width: 100%;
+    padding-bottom: 20px;
+}
+
+/* Titulo */
+.parrafo2 {
+    font-size: 24px; /* Tamaño más grande */
+    font-weight: bold; /* Negrita para resaltar */
+    color: #fff;
+    text-align: center; /* Centrar el texto */
+    line-height: 1.5; /* Espaciado entre líneas */
+    margin: 20px auto; /* Margen superior e inferior */
+}
+
+/* Estilos para los botones de las pestañas */
+.tabs {
+    display: flex;
+    justify-content: center;
+    gap: 2.5%; /* Espacio entre los botones */
+    margin-top: 0; /* Espacio solo hacia arriba */
+    margin-bottom: 0; /* Elimina el espacio hacia abajo */
+    width: 50%;
+}
+
+.tab-button {
+    background-color: #005CB9;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 10px 10px 0 0; /* Redondeado solo en la parte superior */
+    width: 30%;
+}
+
+.tab-button:hover {
+    background-color: #54565b;
+}
+
+/* Pestaña activa */
+.tab-button.active {
+    background-color: #002856;
+}
+
+/* Estilo del contenido de cada pestaña */
+.tab-content {
+    display: none;
+}
+
+/* Estilo de Vista hacia el ESTE y OESTE */
+.subtitles {
+    display: flex; /* Usa flexbox para alinear a las imágenes horizontalmente */
+    justify-content: space-between; /* Espacio entre las imágenes */
+    width: 100%; /* Ocupa todo el ancho disponible */
+    margin: 0 0; /* Margen superior e inferior cero para que encaje con las imagenes de abajo*/
+    background-color: #002856;
+}
+  
+  .subtitle {
+    width: 48%; /* Cada imagen ocupa el 48% del ancho del contenedor */
+    text-align: center;
+    margin: 15px 1%; /* Pequeño margen lateral para separar las imágenes */
+    font-size: 24px; /* Tamaño más grande */
+    font-weight: bold; /* Negrita para resaltar */
+    color: #fff;
+}
+
+/* Estilo de cada imagen en vivo */
+.live-frame {
+    width: 48%; /* Cada imagen ocupa el 48% del ancho del contenedor */
+    text-align: center;
+    margin: 0 1%; /* Pequeño margen lateral para separar las imágenes */
+}
+
+/* Contenedor de las imágenes en vivo */
+.live-frame-container {
+    display: flex; /* Usa flexbox para alinear las imágenes horizontalmente */
+    justify-content: space-between; /* Espacio entre las imágenes */
+    width: 100%; /* Ocupa todo el ancho disponible */
+    margin: 0 0; /* Margen superior e inferior */
+    background-color: #002856;
+    padding-bottom: 8px;
+}
+
+.live-frame img {
+    width: 100%; /* La imagen ocupa todo el ancho del contenedor */
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Consejo para visualizar la nubosidad en vivo */
+.advice {
+    font-size: 12px; 
+    color: #fff;
+    width: 100%; 
+    text-align: center; /* Centrar el texto */
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-bottom: 10px;
+    background-color: #002856;
+}
+
+/* Contenedor de los GIFs */
+.gif-container {
+    display: flex; /* Usa flexbox para alinear los GIFs horizontalmente */
+    justify-content: space-between; /* Espacio entre los GIFs */
+    width: 100%; /* Ocupa todo el ancho disponible */
+    margin: 0 0; /* Margen superior e inferior */
+    background-color: #002856; /* Fondo azul oscuro */
+    padding-bottom: 20px;
+}
+
+/* Estilo de cada GIF */
+.gif-item {
+    width: 48%; /* Cada GIF ocupa el 48% del ancho del contenedor */
+    text-align: center;
+    margin: 0 1%; /* Pequeño margen lateral para separar los GIFs */
+}
+
+.gif-item img {
+    width: 100%; /* La imagen ocupa todo el ancho del contenedor */
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+/* Responsividad para pantallas pequeñas */
+@media (max-width: 768px) {
+    .tab-button {
+        width: 80%; /* Los botones ocuparán el 80% del ancho en pantallas pequeñas */
+        margin: 0 auto;
+    }
+
+    .live-frame {
+        flex-direction: column;
+        align-items: center; /* Asegura que las imágenes se apilen correctamente */
+    }
+
+    .live-image {
+        width: 80%; /* En pantallas pequeñas, las imágenes ocuparán el 80% del ancho */
+    }
+
+    .live-image img {
+        width: 100%; /* Asegura que las imágenes mantengan el tamaño correcto */
+    }
+
+    .gif-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .gif-item {
+        width: 100%;
+    }
+
+}

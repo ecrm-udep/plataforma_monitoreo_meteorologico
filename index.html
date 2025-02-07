@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="https://flashphoner.com/downloads/builds/flashphoner_client/wcs_api-2.0/current/flashphoner.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <title>Monitor Meteorológico - UDEP</title>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="LogoUDEPazul.png" alt="logo UDEP">
+            </div>
+            <ul class="menu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="https://map.purpleair.com/air-quality-standards-us-epa-aqi?opt=%2F1%2Flp%2Fa10%2Fp604800%2FcC0#11/-5.1683/-80.6438/9.9">Calidad del aire</a></li>
+                <li><a href="https://www.udep.edu.pe/estacioncientifica/monitoreo/">Mapas</a></li>
+                <li><a href="Contacto/contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- CONTENIDO PRINCIPAL -->
+    <main>
+        <section>
+            <p class="parrafo1">Plataforma de Monitoreo Meteorológico de la Estación Científica Ramón Mugica</p>
+        </section>
+        <!-- SECCIÓN DE TABS -->
+        <section class="tabs-container">
+            <p class="parrafo2">Observación de Nubosidad Local</p>
+            <div class="tabs">
+                <button class="tab-button" id="btnActual" onclick="mostrarNubosidad('actual')">Actual</button>
+                <button class="tab-button" id="btnTresHoras" onclick="mostrarNubosidad('tresDias')">Últimas 3 Horas</button>
+                <button class="tab-button" id="btnDiaAnterior" onclick="mostrarNubosidad('diaAnterior')">Día Anterior</button>
+            </div>
+            <!-- Subtítulos fuera del contenido de las imágenes -->
+            <div class="subtitles">
+                <p class="p2 subtitle">ESTE</p>
+                <p class="p2 subtitle">OESTE</p>
+            </div>
+            <div class="tab-content" id="contentActual">
+                <div class="live-frame-container">
+                    <div class="live-frame">
+                        <img id="liveImage1" src="Recursos/Live/ESTE.jpg" alt="Vista hacia el ESTE">
+                    </div>
+                    <div class="live-frame">
+                        <img id="liveImage2" src="Recursos/Live/OESTE.jpg" alt="Vista hacia el OESTE">
+                    </div>
+                </div>
+                <p class="advice">⚠️ Para acceder a la vista en vivo de la nubosidad, asegúrate de estar conectado a la red UDEP.</p>
+            </div>
+            <div class="tab-content" id="contentTresDias" style="display:none;">
+                <div class="gif-container">
+                    <div class="gif-item">
+                        <img src="Recursos/nub_3h/ESTE.gif" alt="GIF 1">
+                    </div>
+                    <div class="gif-item">
+                        <img src="Recursos/nub_3h/OESTE.gif" alt="GIF 2">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="contentDiaAnterior" style="display:none;">
+                <div class="gif-container">
+                    <div class="gif-item">
+                        <img src="Recursos/nub_ayer/ESTE.gif" alt="GIF 1">
+                    </div>
+                    <div class="gif-item">
+                        <img src="Recursos/nub_ayer/OESTE.gif" alt="GIF 2">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script>
+            // Función para mostrar la nubosidad seleccionada
+            function mostrarNubosidad(seleccion) {
+                // Ocultar todos los contenidos
+                document.getElementById("contentActual").style.display = "none";
+                document.getElementById("contentTresDias").style.display = "none";
+                document.getElementById("contentDiaAnterior").style.display = "none";
+                // Cambiar el estilo de los botones
+                const buttons = document.querySelectorAll('.tab-button');
+                buttons.forEach(button => {
+                    button.classList.remove('active');
+                });
+                // Mostrar el contenido correspondiente
+                if (seleccion === "actual") {
+                    document.getElementById("contentActual").style.display = "block";
+                    document.getElementById('btnActual').classList.add('active');
+                } else if (seleccion === "tresDias") {
+                    document.getElementById("contentTresDias").style.display = "block";
+                    document.getElementById('btnTresHoras').classList.add('active');
+                } else if (seleccion === "diaAnterior") {
+                    document.getElementById("contentDiaAnterior").style.display = "block";
+                    document.getElementById('btnDiaAnterior').classList.add('active');
+                }
+            }
+
+            // Llamada inicial para mostrar la nubosidad actual
+            mostrarNubosidad('actual');
+
+            // Función para actualizar las imágenes en vivo
+            function actualizarImagenes() {
+                const imagenes = document.querySelectorAll('.live-frame img'); // Selecciona todas las imágenes en vivo
+
+                imagenes.forEach(img => {
+                    // Obtiene el src actual de la imagen
+                    let src = img.src.split('?')[0]; // Elimina cualquier parámetro existente (como el timestamp anterior)
+                    // Añade un nuevo timestamp al final del src
+                    img.src = `${src}?timestamp=${new Date().getTime()}`;
+                });
+            }
+
+            // Llama a la función inmediatamente al cargar la página
+            actualizarImagenes();
+
+            // Configura un intervalo para actualizar las imágenes cada 30 segundos (30000 ms)
+            setInterval(actualizarImagenes, 1000);
+        </script>
+    </main>
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2025 Universidad de Piura - Todos los derechos reservados</p>
+    </footer>
+</body>
+</html>

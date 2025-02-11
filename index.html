@@ -44,11 +44,13 @@
             <div class="tab-content" id="contentActual">
                 <div class="live-frame-container">
                     <div class="live-frame">
-                        <img id="liveImage1" src="https://192.168.14.62/Recursos/Live/ESTE.jpg" alt="Vista hacia el ESTE">
+                        <img id="liveImage1" src="Recursos/Live/ESTE.jpg" alt="Vista hacia el ESTE">
                     </div>
                     <div class="live-frame">
-                        <img id="liveImage2" src="https://192.168.14.62/Recursos/Live/OESTE.jpg" alt="Vista hacia el OESTE">
+                        <img id="liveImage2" src="Recursos/Live/OESTE.jpg" alt="Vista hacia el OESTE">
                     </div>
+                    <!-- Este es el botón que se mostrará solo en la pestaña 'Actual' -->
+                    <button id="btnLiveImage" style="display: none;" onclick="window.location.href='http://192.168.14.62/livecam.html'">Vista en vivo</button>
                 </div>
                 <p class="advice">⚠️ Para acceder a la vista en vivo de la nubosidad, asegúrate de estar conectado a la red UDEP.</p>
             </div>
@@ -74,6 +76,7 @@
                 </div>
             </div>
         </section>
+
         <script>
             // Función para mostrar la nubosidad seleccionada
             function mostrarNubosidad(seleccion) {
@@ -81,15 +84,22 @@
                 document.getElementById("contentActual").style.display = "none";
                 document.getElementById("contentTresDias").style.display = "none";
                 document.getElementById("contentDiaAnterior").style.display = "none";
+
+                // Ocultar el botón de Live Image en todas las pestañas
+                document.getElementById('btnLiveImage').style.display = 'none';
+
                 // Cambiar el estilo de los botones
                 const buttons = document.querySelectorAll('.tab-button');
                 buttons.forEach(button => {
                     button.classList.remove('active');
                 });
-                // Mostrar el contenido correspondiente
+
+                // Mostrar el contenido correspondiente y mostrar el botón si es la pestaña "actual"
                 if (seleccion === "actual") {
                     document.getElementById("contentActual").style.display = "block";
                     document.getElementById('btnActual').classList.add('active');
+                    // Mostrar el botón solo en la pestaña "actual"
+                    document.getElementById('btnLiveImage').style.display = 'inline-block';
                 } else if (seleccion === "tresDias") {
                     document.getElementById("contentTresDias").style.display = "block";
                     document.getElementById('btnTresHoras').classList.add('active');
@@ -98,6 +108,7 @@
                     document.getElementById('btnDiaAnterior').classList.add('active');
                 }
             }
+
 
             // Llamada inicial para mostrar la nubosidad actual
             mostrarNubosidad('actual');

@@ -92,6 +92,28 @@ footer {
     margin: 20px auto; /* Margen superior e inferior */
 }
 
+/* Estilo para el botón de Live Image */
+#btnLiveImage {
+    background-color: #005CB9;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    padding: 20px 24px;
+    font-size: 24px;
+    cursor: pointer;
+    border-radius: 5px;
+    position: absolute; /* Posicionamos el botón de manera absoluta dentro del contenedor */
+    top: 50%; /* Lo coloca verticalmente en el centro */
+    left: 50%; /* Lo coloca horizontalmente en el centro */
+    transform: translate(-50%, -50%); /* Ajuste para centrar perfectamente */
+    z-index: 10; /* Lo pone por encima de las imágenes */
+    display: none; /* Inicialmente oculto */
+}
+
+#btnLiveImage:hover {
+    background-color: #54565b;
+}
+
 /* Estilos para los botones de las pestañas */
 .tabs {
     display: flex;
@@ -156,7 +178,10 @@ footer {
 .live-frame-container {
     display: flex; /* Usa flexbox para alinear las imágenes horizontalmente */
     justify-content: space-between; /* Espacio entre las imágenes */
-    width: 100%; /* Ocupa todo el ancho disponible */
+    align-items: center;  /* Alinea verticalmente el contenido al centro */
+    width: 100%;
+    position: relative;   /* Necesario para posicionar el botón dentro de este contenedor */
+    height: 100%; /* Se ajustará automáticamente al contenido */
     margin: 0 0; /* Margen superior e inferior */
     background-color: #002856;
     padding-bottom: 8px;
@@ -207,6 +232,11 @@ footer {
     .tab-button {
         width: 80%; /* Los botones ocuparán el 80% del ancho en pantallas pequeñas */
         margin: 0 auto;
+    }
+
+    #btnLiveImage {
+        padding: 15px 20px;
+        font-size: 18px;
     }
 
     .live-frame {

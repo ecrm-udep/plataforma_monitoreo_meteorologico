@@ -1,0 +1,141 @@
+/* RESET */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* MENÚ DE NAVEGACIÓN */
+header {
+    background: #ffffff;
+    border-bottom: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.logo img {
+    height: 50px;
+    margin-right: 10px;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li {
+    text-align: center;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #003366;
+    font-weight: bold;
+    padding: 5px 10px;
+    transition: color 0.3s;
+}
+
+.menu a:hover {
+    color: #005bb5;
+}
+
+/* SECCIÓN DE TEXTO PRINCIPAL */
+.parrafo1 {
+    font-family: 'Franklin Gothic Medium', sans-serif;
+    text-align: center;
+    color: #003366;
+    padding: 20px 20px;
+    font-size: 30px;
+    margin-top: 20px;
+    margin: 15px;
+}
+
+/* Imagen y Widgets encima */
+.imagen-contenedor {
+    position: relative;
+    display: flex;             /* Utilizamos flexbox */
+    justify-content: center;   /* Centrado horizontal */
+    align-items: center;       /* Centrado vertical */
+    width: 100%;
+    height: auto;              /* Mantiene la proporción */
+}
+
+.imagen-normal {
+    width: 70%;  /* Puedes ajustar el porcentaje según lo que necesites */
+    height: auto; /* Mantiene la proporción de la imagen */
+}
+
+/* Estilos para los widgets */
+.widget {
+    position: absolute;
+    color: white;
+    width: 150px; /* Ancho del widget */
+    height: 125px; /* Alto del widget */
+    overflow: hidden; /* Asegura que el contenido no sobresalga */
+    border-radius: 13px;
+    transform: scale(0.6); /* Reducir el tamaño del contenido dentro del widget */
+    transform-origin: top left; /* Escala desde la esquina superior izquierda */
+}
+
+.widget-1 {
+    top: 90px; /* Distancia desde la parte superior de la imagen */
+    left: 660px; /* Distancia desde el borde izquierdo */
+}
+
+.widget-2 {
+    top: 120px; /* Ajustar la distancia desde la parte superior */
+    right: 390px;  /* Ajustar la distancia desde el borde izquierdo */
+}
+
+.widget-3 {
+    top: 40px; /* Ajustar la distancia desde la parte superior */
+    right: 260px; /* Ajustar la distancia desde el borde derecho */
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    /* Evitar cambios en el tamaño y posición de los widgets */
+    .widget-1, .widget-2, .widget-3{
+        width: 150px;  /* Mantener el tamaño original del widget */
+        height: 125px; /* Mantener la altura original del widget */
+    }
+
+    /* Evitar que los widgets se desplacen, manteniendo su posición */
+    .widget-1 {
+        top: 150px;
+        left: 215px;
+    }
+
+    .widget-2 {
+        top: 350px;
+        left: 260px;
+    }
+
+    .widget-3 {
+        top: 350px;
+        right: 770px;
+    }
+    /* Ajuste del texto en pantallas pequeñas */
+    .parrafo1 {
+        font-size: 20px; /* Reducir el tamaño del texto para pantallas pequeñas */
+    }
+}
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 10px;
+    background: #fff;
+    color: #000;
+    margin-top: 10px;
+}
+

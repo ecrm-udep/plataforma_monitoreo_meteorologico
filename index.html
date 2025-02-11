@@ -112,24 +112,6 @@
 
             // Llamada inicial para mostrar la nubosidad actual
             mostrarNubosidad('actual');
-
-            // Función para actualizar las imágenes en vivo
-            function actualizarImagenes() {
-                const imagenes = document.querySelectorAll('.live-frame img'); // Selecciona todas las imágenes en vivo
-
-                imagenes.forEach(img => {
-                    // Obtiene el src actual de la imagen
-                    let src = img.src.split('?')[0]; // Elimina cualquier parámetro existente (como el timestamp anterior)
-                    // Añade un nuevo timestamp al final del src
-                    img.src = `${src}?timestamp=${new Date().getTime()}`;
-                });
-            }
-
-            // Llama a la función inmediatamente al cargar la página
-            actualizarImagenes();
-
-            // Configura un intervalo para actualizar las imágenes cada 30 segundos (30000 ms)
-            setInterval(actualizarImagenes, 1000);
         </script>
     </main>
     <!-- FOOTER -->
